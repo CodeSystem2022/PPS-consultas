@@ -15,16 +15,16 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <a class="navbar-brand" href="#">Un servicio de UTN - FRSR</a>
+      <a class="navbar-brand" href="#">ConsultasOnDemand.com</a>
       <div class="collapse navbar-collapse bg-body-dark" id="navbarTogglerDemo03">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
           <li class="nav-item">
-            <a href="{% url 'index'%}" class="nav-link active" aria-current="page">ConsultasOnDemand.com</a>
+            <a href="{% url 'index'%}" class="nav-link active" aria-current="page">Un servicio de UTN - FRSR</a>
             
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            
+                        
           </li>
         {% if user.is_staff or user.is_superuser %}
         </ul>
@@ -46,7 +46,7 @@
             </li>
             {% endif %}
           </ul>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
             {% if user.is_authenticated %}
               <li class="nav-item"><a class="nav-link" href="{% url 'accounts:index' %}">Mi cuenta</a></li>
               <li class="nav-item"><a class="nav-link" href="{% url 'accounts:logout' %}">Salir</a></li>
@@ -54,6 +54,7 @@
               <li class="nav-item"><a class="nav-link" href="{% url 'accounts:login' %}">Entrar</a></li>
               <li class="nav-item"><a class="nav-link" href="{% url 'accounts:register' %}">Registro</a></li>
             {% endif %}
+            
           </ul>
         </div>
       </div>  
@@ -73,7 +74,7 @@
         <div class="col-lg-12">
           <ul class="list-unstyled">
             <li class="pull-right"><a href="#top">Volver al principio</a></li>
-            <li><a href="">Início</a></li>
+            <li><a href="">Inicio</a></li>
             <li><a href="">Términos y Privacidad</a></li>
           </ul>
         </div>
