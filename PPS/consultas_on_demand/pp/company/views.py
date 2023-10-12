@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
-def index(request):
-    return render(request, 'index.html', {})
-
+def home(request):
+    data = {
+        'titulo': 'Bienvenido a nuestro sitio',
+        'mensaje': 'Esto es un mensaje de bienvenida',
+        
+    }
+    return render(request, 'tienda/index.html', data)

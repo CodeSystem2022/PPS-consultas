@@ -1,12 +1,12 @@
-
 from django.contrib import admin
 from django.urls import path
-from django.urls import path, include
-from .views import Indexx
+from django.urls.conf import include
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', Indexx.as_view(), name='index'),
-    path('company/', include('company.urls')),
-    path('conta/', include('accounts.urls', namespace='accounts')),
-]
+    path('', include('company.urls')),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('USUARIOS/', include('USUARIOS.urls')),
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
