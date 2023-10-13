@@ -1,7 +1,28 @@
 {% extends 'tienda/layout.html' %}
 {% load static %}
 {% block contenedor %}
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	body{
+		background:#fafafa;
+	}
+
+	h1, h2, h3, p, small{
+		font-family: 'Roboto', sans-serif;
+	}
+
+	.div_main{
+		width: 60%;
+		margin: 50px auto;
+	}
+
+</style>
 <h1>
 	Bienvenido {{user}}. Inbox
 </h1>
@@ -16,7 +37,7 @@
 
 		{% else %}
 
-			<a href="{% url 'detailms' second_user.usuario.username %}">
+			<a href="{% url 'tienda:detailms' second_user.usuario.username %}">
 				<p>
 					{{second_user.usuario}}
 				</p>
@@ -62,17 +83,6 @@
 {% endfor %}
 
 
-<style>
-	
-	.div_inbox{
-		width: 90%;
-		margin:10px auto;
-		background: #fff;
-		border-radius: 5px;
-		border:1px solid #e6e6e6;
-		padding: 5px;
-	}
 
-</style>
 		
 {% endblock %}
