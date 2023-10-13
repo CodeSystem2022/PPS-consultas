@@ -1,13 +1,13 @@
 from django.db import models
 from django.conf import settings
 import uuid
-from django.contrib.auth.models import User
+
 
 
 from django.apps import apps
 
 from django.db.models import Count
-
+from django.contrib.auth.models import User
 User = settings.AUTH_USER_MODEL
 
 class ModelBase(models.Model):
