@@ -12,7 +12,7 @@ def registrarse(request):
             form.save()            
             return HttpResponseRedirect(reverse('login'))
         else:            
-            return HttpResponseRedirect(reverse('registrarse'))
+            return HttpResponseRedirect(reverse('USUARIOS:registrarse'))
 
     else:        
         form = RegistroForm()
