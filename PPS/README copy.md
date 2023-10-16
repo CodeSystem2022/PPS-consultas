@@ -1,4 +1,4 @@
-# Hackathon-2022
+# pss-2022
 
 <<<<<<< Updated upstream
 ## Instructivo entorno virtual
