@@ -1,0 +1,90 @@
+{% extends 'tienda/layout.html' %}
+{% load static %}
+
+
+{%  block main %}
+
+<div class="main_div">
+	
+	<article class="feed_principal">
+		
+		<header class="titulo_header">
+			<h2 class="big">
+				{{instance.texto}}
+			</h2>
+		</header>
+
+		<div class="feed_propieda">
+			
+			<div class="feed_avatar">
+				<a href="" style="background-image:url();" class="UserAvatar">
+					
+				</a>
+			</div>
+
+			<div class="feed_detalles">
+				
+				<div class="feed_meta">
+					<a href="">
+						{{instance.usuario.username}}
+					</a>
+				</div>
+
+				<form method="POST">
+					{% csrf_token %}
+					{{form.as_p}}
+
+					<button type="submit" class="btn_comentar">
+						Comentar
+					</button>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</article>
+
+	<header>
+		
+		{% if ver_comentarios.count > 1 %}
+			Hay {{ver_comentarios.count}}</strong> comentarios <strong>
+		{% else %}
+			Hay {{ver_comentarios.count}}</strong> comentario <strong>
+		{% endif %}
+
+
+	</header>
+	
+
+	{% for ver_comentarios in ver_comentarios %}
+	<div class="div_ver_comentarios">
+
+		<strong>
+			{{ver_comentarios.usuario}} <small>{{ver_comentarios.tiempo}}</small>
+		</strong>
+
+		<p>
+			{{ver_comentarios.texto}}
+		</p>
+
+		<a href="{% url 'comentarios:eliminar' ver_comentarios.id %}">
+			Eliminar Comentario
+		</a>
+
+	</div>
+	<hr>
+	{% empty %}
+
+		<h1>
+			Publica el primer comentario
+		</h1>
+
+	{% endfor %}
+
+</div>
+
+
+
+{% endblock %}

@@ -1,6 +1,8 @@
+
 # PPS-2022
 
-<<<<<<< Updated upstream
+
+
 ## Instructivo entorno virtual
 
 Primero debemos instalar `virtualenv`, este es un complemento, con el que desde la terminal podemos crear un entorno virtual para un proyecto de desarrollo python. También este complemento nos permitirá levantar el entorno virtual.
@@ -76,4 +78,4 @@ En esa rama se encuentra la arquitectura básica para el uso de plantillas `.htm
 >alojamiento, como hoteles, apart hotel, cabañas y campings
 
 >actividades de turismo aventura como rafting, trekking y paseos por el lago,  escalada, rappel, etc. 
->>>>>>> Stashed changes
+

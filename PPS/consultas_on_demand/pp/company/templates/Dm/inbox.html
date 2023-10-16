@@ -1,0 +1,88 @@
+{% extends 'tienda/layout.html' %}
+{% load static %}
+{% block contenedor %}
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+
+	body{
+		background:#fafafa;
+	}
+
+	h1, h2, h3, p, small{
+		font-family: 'Roboto', sans-serif;
+	}
+
+	.div_main{
+		width: 60%;
+		margin: 50px auto;
+	}
+
+</style>
+<h1>
+	Bienvenido {{user}}. Inbox
+</h1>
+
+{% for inbox in inbox %}
+<div class="div_inbox">
+
+	
+	{% for second_user in inbox.canalusuario_set.all %}
+
+		{% if second_user.usuario ==  request.user %}
+
+		{% else %}
+
+			<a href="{% url 'tienda:detailms' second_user.usuario.username %}">
+				<p>
+					{{second_user.usuario}}
+				</p>
+				<small>
+					({{inbox.canalmensaje_set.count}}) Mensajes
+				</small>
+			</a>
+
+		{% endif %}
+
+	{% endfor %}
+
+	{% if inbox.canalmensaje_set.count != 0 %}
+		<div class="div_ms_inbox">
+			
+			{% with ultimo_mensaje=inbox.canalmensaje_set.last %}
+
+				<p>
+					Mensaje: {{ultimo_mensaje.texto}}
+				</p>
+
+				<p>
+					Usuario: {{ultimo_mensaje.usuario}}
+				</p>
+
+			{% endwith %}
+		</div>	
+	{% else %}
+		<p>
+			No hay mensajes en nuestro inbox
+		</p>
+	{% endif %}
+
+
+
+</div>
+{% empty %}
+
+<h2>
+	Inbox Vacio
+</h2>
+
+{% endfor %}
+
+
+
+		
+{% endblock %}

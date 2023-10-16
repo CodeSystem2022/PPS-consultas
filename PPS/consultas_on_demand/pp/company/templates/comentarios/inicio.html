@@ -1,0 +1,58 @@
+{% extends 'tienda/layout.html' %}
+{% load static %}
+
+
+{%  block main %}
+
+<div class="main_div">
+	
+	{% for post in post %}
+		<article class="feed_one feed_principal">
+			
+			<header class="titulo_header">
+				<h2 class="big">
+					
+				{{post.texto}}
+
+				</h2>
+			</header>
+
+			<div class="feed_propieda">
+
+				<div class="feed_avatar">
+					<a style="background-image: url();" class="userAvatar"></a>
+				</div>
+
+
+				<div class="feed_detalles">
+					<div  class="feed_meta feed_meta_owner">
+						<a href="" class="userOnline" style="display: flex;">
+							{{post.usuario}}
+						</a>
+					</div>
+
+					<a href="{% url 'comentarios:post_idd' pk=post.pk %}">
+						<button class="b_comentar">
+							Comentar
+						</button>
+					</a>
+					
+
+				</div>
+				
+			</div>
+
+		</article>
+
+	{% empty %}
+
+	<h1>
+		Vacio
+	</h1>
+
+	{% endfor %}
+
+</div>
+
+
+{% endblock %}
