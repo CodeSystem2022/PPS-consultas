@@ -1,5 +1,5 @@
 from django.urls import re_path
-from .views import post_idd, comentario_id, eliminarComentarios
+from comentarios.views import post_idd, comentario_id, eliminarComentarios
 
 
 app_name = 'comentarios'

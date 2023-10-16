@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 from django.db import models
-
-
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes.fields import  GenericForeignKey
 from django.contrib.contenttypes.fields import GenericRelation
+
 
 from django.urls import reverse
 from django.conf import settings
@@ -33,7 +32,7 @@ class Comentarios(models.Model):
 	objects = ComentariosManager()
 
 	def get_absolute_url(self):
-		return reverse("comentario_id", kwargs={"pk": self.pk})
+		return reverse("comentarios:comentario_id", kwargs={"pk": self.pk})
 
 	def __unicode__(self):
 		return self.texto[:15]

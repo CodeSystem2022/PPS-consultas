@@ -9,7 +9,7 @@ from django.utils.text import slugify
 
 from django.contrib.contenttypes.models import ContentType
 from comentarios.models import Comentarios
-
+from django.contrib.contenttypes.fields import GenericRelation
 from django.urls import reverse
 
 from django.contrib.auth.models import User
@@ -22,16 +22,17 @@ class Post(models.Model):
 	texto   = models.TextField(max_length=200, blank=True, null=True)
 	slug    = models.SlugField(unique=True, blank=True)
 	tiempo  = models.DateTimeField(auto_now_add=True)
-
+#	comentarios_relacionados = GenericRelation(Comentarios)
 	def __unicode__(self):
 		return self.slug
 
 	def get_absolute_url(self):
-		return reverse("post_idd", kwargs={"pk": self.pk})
+		return reverse("comentarios:post_idd", kwargs={"pk": self.pk})
 
 	def comentarios(self):
 		instance = self
 		qs = Comentarios.objects.filtro_por_instancia(instance)
+#		qs = instance.comentarios_relacionados.all()
 		return qs
 
 	def get_content_type(self):
