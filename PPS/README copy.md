@@ -20,6 +20,9 @@ Luego debemos entrar en la carpeta del repositorio `hackathon-2022`, y ejecutar 
 ```bash
 virtualenv env
 ```
+o, si eso no funciona probar:
+
+python -m virtualenv env
 
 ### Activación
 
